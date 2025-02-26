@@ -1,8 +1,11 @@
+import Channel from "@dashkite/reactive/channel"
 import DOM from "@dashkite/dominator"
 
-validate = ( root, html ) ->
+validate = ( root ) ->
 
   errors = {}
+  
+  channel = Channel.make()
 
   capture = ( target ) ->
     errors[ target.name ] =
@@ -13,19 +16,15 @@ validate = ( root, html ) ->
   dismiss = ( target ) ->
     delete errors[ target.name ]
 
-  render = ->
-    data = DOM.form root
-    html { data, errors }
-
-  DOM.activate root, render
-    
   DOM.invalid root, ( target ) ->
     errors = capture target
-    render()
+    channel.send errors
 
   DOM.change "form [name]", ( target ) ->
     errors = dismiss target
-    render()
+    channel.send errors
+
+  channel
 
 export { validate }
 export default validate
