@@ -1,5 +1,5 @@
 import Channel from "@dashkite/reactive/channel"
-import DOM from "@dashkite/dominator"
+import * as DOM from "@dashkite/dominator"
 
 validate = ( root ) ->
 
