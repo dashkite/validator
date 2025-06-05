@@ -1,5 +1,5 @@
 import Channel from "@dashkite/reactive/channel"
-import * as DOM from "@dashkite/dominator"
+import $ from "@dashkite/zest"
 
 validate = ( root ) ->
 
@@ -18,13 +18,22 @@ validate = ( root ) ->
     delete errors[ target.name ]
     errors
 
-  DOM.invalid root, ( target ) ->
-    errors = capture target
-    channel.send errors
+  $ root
+    .capture()
+    .invalid()
+    .prevent()
+    .apply ( event ) ->
+      console.log invalid: event
+      errors = capture event.target
+      channel.send errors
 
-  DOM.change root, "form [name]", ( target ) ->
-    errors = dismiss target
-    channel.send errors
+  $ root
+    .listen()
+    .change()
+    .matches "form [name]"
+    .apply ( event ) ->
+      errors = dismiss event.target
+      channel.send errors
 
   channel
 

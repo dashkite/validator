@@ -41,7 +41,7 @@
     "@dashkite/vista": "link:../vista"
   },
   "dependencies": {
-    "@dashkite/dominator": "link:../dominator",
-    "@dashkite/reactive": "link:../reactive"
+    "@dashkite/reactive": "link:../reactive",
+    "@dashkite/zest": "link:../zest"
   }
 }

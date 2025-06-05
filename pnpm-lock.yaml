@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
-      '@dashkite/dominator':
-        specifier: link:../dominator
-        version: link:../dominator
       '@dashkite/reactive':
         specifier: link:../reactive
         version: link:../reactive
+      '@dashkite/zest':
+        specifier: link:../zest
+        version: link:../zest
     devDependencies:
       '@dashkite/amen':
         specifier: ^0.2.0
