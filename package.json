@@ -41,7 +41,7 @@
     "@dashkite/genie-release": "^0.2.8"
   },
   "dependencies": {
-    "@dashkite/reactive": "link:../reactive",
+    "@dashkite/reactive": "0.1.0",
     "@dashkite/zest": "link:../zest"
   }
 }
