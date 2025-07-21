@@ -43,6 +43,6 @@
   },
   "dependencies": {
     "@dashkite/reactive": "0.3.0",
-    "@dashkite/zest": "link:../zest"
+    "@dashkite/zest": "0.1.0"
   }
 }
